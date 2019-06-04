@@ -76,3 +76,33 @@ prev.addEventListener('click', function() {
     dotClick('second', 'third', 'first');
 })
 
+/*************
+FAQ accordion section
+**************/
+
+//delcare default vars
+const acc = document.getElementsByClassName("accordion");
+
+//loop through all accordion buttons
+for (let i = 0, j = acc.length; i < j; i++) {
+
+  //trigger an event after click
+  acc[i].addEventListener("click", function() {
+
+    //add in the active class
+    this.classList.toggle("active");
+
+    //select sibling element
+    let panel = this.nextElementSibling;
+
+    //if sibling is open, close it, if closed, open it
+    if (panel.style.maxHeight){
+      //panel is open
+      panel.style.maxHeight = null;
+
+    } else {
+      //panel is closed
+      panel.style.maxHeight = panel.scrollHeight + "px"; 
+    }
+  });
+}
