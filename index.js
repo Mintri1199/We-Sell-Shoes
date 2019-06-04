@@ -3,27 +3,17 @@ testimonial section
 **************/
 
 //three dots
-const nextNext = document.getElementById('next-next')
+const nextNext = document.getElementById('next-next');
 const next = document.getElementById('next');
 const prev = document.getElementById('prev');
 
 //individual testimonials
 const testimonial1 = document.querySelector('.testimonial1');
 const testimonial2 = document.querySelector('.testimonial2');
-const testimonial3 = document.querySelector('.testimonial3')
+const testimonial3 = document.querySelector('.testimonial3');
 
 //testimonial parent container
 const tests = document.querySelector('.tests');
-
-let nextNextInt = window.setInterval(function() {
-    // check for and remove second class
-    if (tests.classList.contains('second')) {
-        tests.classList.remove('second');
-
-        // add the class which shows the third testimonial
-        tests.classList.add('third');
-    }
-}, 4000)
 
 let nextNextInt = window.setInterval(function() {
     //check for and remove second class
@@ -37,7 +27,7 @@ let nextNextInt = window.setInterval(function() {
 }, 4000)
   
   
-let nextint = window.setInterval(function() {
+let nextInt = window.setInterval(function() {
     //check for and remove first class
     if (tests.classList.contains('first')) {
       tests.classList.remove('first');
@@ -48,7 +38,7 @@ let nextint = window.setInterval(function() {
   
 }, 8000)
   
-let prevint = window.setInterval(function() {
+let prevInt = window.setInterval(function() {
     //check for and remove third class
     if (tests.classList.contains('third')) {
       tests.classList.remove('third');
@@ -58,7 +48,7 @@ let prevint = window.setInterval(function() {
     }
 }, 16000)
 
-// Create a resusable funciton for clicking on  teh dots.
+// Create a resusable function for clicking n the dots.
 function dotClick(oldClassOne, oldClassTwo, newClass) {
     if (tests.classList.contains(oldClassOne)) {
         tests.classList.remove(oldClassOne);
@@ -69,8 +59,9 @@ function dotClick(oldClassOne, oldClassTwo, newClass) {
     }
 
     window.clearInterval(nextNextInt);
-    window.clearInterval(nextint);
-    window.clearInterval(newClass);
+    window.clearInterval(nextInt);
+    window.clearInterval(prevInt);
+    tests.classList.add(newClass);
 }
 
 nextNext.addEventListener('click', function() {
@@ -84,5 +75,3 @@ next.addEventListener('click', function() {
 prev.addEventListener('click', function() {
     dotClick('second', 'third', 'first');
 })
-
-////////////////// end of testimonial section
