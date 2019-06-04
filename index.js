@@ -75,3 +75,4 @@ next.addEventListener('click', function() {
 prev.addEventListener('click', function() {
     dotClick('second', 'third', 'first');
 })
+
